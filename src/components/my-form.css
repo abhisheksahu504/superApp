@@ -1,0 +1,27 @@
+.input-box {
+  background-color: #292929;
+  border-radius: 4px;
+
+  padding: 15px 100px 15px 100px;
+  margin: 5px 0 10px 0;
+  border: 2px solid black;
+  /* text-align: start; */
+}
+form p {
+  color: #7c7c7c;
+  font-size: small;
+}
+
+form button {
+  border-radius: 28px;
+  /* margin: 15px; */
+  padding: 15px;
+  color: white;
+  background-color: #72db73;
+  border: 2px solid black;
+  font-weight: 600;
+}
+form p a {
+  text-decoration: none;
+  color: #72db73;
+}
