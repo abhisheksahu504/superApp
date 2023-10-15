@@ -2,8 +2,8 @@
   background-color: #292929;
   border-radius: 4px;
 
-  padding: 15px 100px 15px 100px;
-  margin: 5px 0 10px 0;
+  padding: 15px 200px 15px 15px;
+  margin: 5px 0 5px 0;
   border: 2px solid black;
   /* text-align: start; */
 }
@@ -24,4 +24,8 @@ form button {
 form p a {
   text-decoration: none;
   color: #72db73;
+}
+.error-message {
+  color: red;
+  /* display: none; Hide the error message by default */
 }
