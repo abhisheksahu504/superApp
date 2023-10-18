@@ -1,12 +1,17 @@
 import "./App.css";
 import Login from "./components/Login";
 // import { Component } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Category from "./components/Category";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Login />} />
+        <Route path="/user/:id" element={<Category />} />
+      </Routes>
+    </Router>
   );
 }
 

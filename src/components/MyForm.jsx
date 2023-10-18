@@ -122,11 +122,14 @@ function MyForm() {
       <button type="submit">Sign Up</button>
       <p>
         By clicking on Sign up. you agree to Superapp{" "}
-        <a href="#">Terms and Conditions of Use</a>
+        <a href="https://cuvette.tech/app/student/terms">
+          Terms and Conditions of Use
+        </a>
       </p>
       <p>
         To learn more about how Superapp collects, uses, shares and protects
-        your personal data please head Superapp <a href="#">Privacy Policy</a>
+        your personal data please head Superapp{" "}
+        <a href="https://cuvette.tech/app/student/terms">Privacy Policy</a>
       </p>
     </form>
   );
