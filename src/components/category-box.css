@@ -1,0 +1,31 @@
+.container-box {
+  border-radius: 12px;
+  max-height: 250px;
+  max-width: 200px;
+  /* background-color: orange; */
+  margin: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+}
+.container-box img {
+  max-height: 50%;
+  max-width: 100%;
+  display: block;
+  /* align-items: center; */
+  margin: auto;
+  /* margin-bottom: 0px; */
+  margin-top: 0px;
+}
+.container-box h3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: white;
+  margin-left: 15px;
+  /* text-align: start; */
+}
+.container-box:hover {
+  /* border: 1px solid #148a08; */
+  cursor: pointer;
+}

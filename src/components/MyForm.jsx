@@ -2,6 +2,44 @@ import React, { useState } from "react";
 import "./my-form.css";
 
 function MyForm() {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   let valid = true;
+  //   if (!(formValues.name.trim().length > 0)) {
+  //     setNameError(true);
+  //     valid = false;
+  //   } else {
+  //     setNameError(false);
+  //   }
+  //   if (!(formValues.username.trim().length > 0)) {
+  //     setUserNameError(true);
+  //     valid = false;
+  //   } else {
+  //     setUserNameError(false);
+  //   }
+  //   if (!(formValues.mail.trim().length > 0)) {
+  //     setMailError(true);
+  //     valid = false;
+  //   } else {
+  //     setMailError(false);
+  //   }
+  //   if (!(formValues.mobile.trim().length > 0)) {
+  //     setMobileError(true);
+  //     valid = false;
+  //   } else {
+  //     setMailError(false);
+  //   }
+  //   if (!formValues.check) {
+  //     setSignUpError(true);
+  //     valid = false;
+  //   } else {
+  //     setSignUpError(false);
+  //   }
+  //   if (valid) {
+  //     window.localStorage.setItem("userData", JSON.stringify(formValues));
+  //     navigate("/category");
+  //   }
+  // };
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -21,6 +59,7 @@ function MyForm() {
 
   // Handle form submission
   const handleSubmit = (e) => {
+    // let valid = true;
     e.preventDefault();
     // Validate the form fields
     const newErrors = {};
@@ -50,6 +89,10 @@ function MyForm() {
       // Submit the form if there are no errors
       // Your form submission logic here
     }
+    // if (valid) {
+    //   window.localStorage.setItem("userData", JSON.stringify(formValues));
+    //   navigate("/category");
+    // }
   };
 
   return (
@@ -119,7 +162,9 @@ function MyForm() {
       </p>
       {errors.check && <div className="error-message">{errors.check}</div>}
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" onClick={(e) => handleSubmit(e)}>
+        Sign Up
+      </button>
       <p>
         By clicking on Sign up. you agree to Superapp{" "}
         <a href="https://cuvette.tech/app/student/terms">
