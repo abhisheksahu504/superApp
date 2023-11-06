@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./my-form.css";
-
+import { useNavigate } from "react-router-dom";
 function MyForm() {
+  const navigate = useNavigate();
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   let valid = true;
@@ -88,6 +89,7 @@ function MyForm() {
     } else {
       // Submit the form if there are no errors
       // Your form submission logic here
+      navigate("/category");
     }
     // if (valid) {
     //   window.localStorage.setItem("userData", JSON.stringify(formValues));
