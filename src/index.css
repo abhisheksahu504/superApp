@@ -99,3 +99,8 @@ code {
 .left-border {
   border-left: 2px solid white;
 }
+/*Browser page layout*/
+.browse-layout {
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
