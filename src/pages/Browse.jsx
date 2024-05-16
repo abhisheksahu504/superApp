@@ -1,10 +1,30 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { TiWeatherStormy, TiThermometer } from "react-icons/ti";
 import { FaWind } from "react-icons/fa";
 import { TbDropletHalf2Filled } from "react-icons/tb";
 import { UserCard } from "../components/UserCard";
+import { NavLink } from "react-router-dom";
+import "../components/category.css";
 
 export const Browse = () => {
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatDate = (date) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+  };
+
+  const formatTime = (date) => {
+    const options = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+    return date.toLocaleTimeString(undefined, options);
+  };
   return (
     <>
       <div className="container">
@@ -14,8 +34,8 @@ export const Browse = () => {
               <UserCard />
               <div className="weather">
                 <div className="date-time">
-                  <p>27-6-2001</p>
-                  <p>22:23</p>
+                  <p>{formatDate(currentDateTime)}</p>
+                  <p>{formatTime(currentDateTime)}</p>
                 </div>
                 <div className="live-weather">
                   <div>
@@ -69,6 +89,11 @@ export const Browse = () => {
             </div>
           </section>
         </section>
+      </div>
+      <div className="btn-container">
+        <NavLink to="/suggestion">
+          <button className="next-button">Browse</button>
+        </NavLink>
       </div>
     </>
   );

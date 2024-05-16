@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Category from "./components/Category";
 import { Browse } from "./pages/Browse.jsx";
+import { Suggestion } from "./pages/Suggestion.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" exact element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/browse" element={<Browse />} />
+        <Route path="/suggestion" element={<Suggestion />} />
       </Routes>
     </Router>
   );

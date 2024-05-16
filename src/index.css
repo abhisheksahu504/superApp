@@ -104,3 +104,12 @@ code {
   grid-template-columns: 2fr 1fr;
   gap: 16px;
 }
+
+.super-logo {
+  font-family: Single Day;
+  font-size: 47.33px;
+  font-weight: 400;
+  line-height: 66.12px;
+  text-align: left;
+  color: #72db73;
+}
