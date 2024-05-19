@@ -89,6 +89,7 @@ function MyForm() {
     } else {
       // Submit the form if there are no errors
       // Your form submission logic here
+      window.localStorage.setItem("userData", JSON.stringify(formData));
       navigate("/category");
     }
     // if (valid) {

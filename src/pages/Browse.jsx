@@ -6,7 +6,28 @@ import { UserCard } from "../components/UserCard";
 import { NavLink } from "react-router-dom";
 import "../components/category.css";
 
+const API =
+  "https://newsapi.org/v2/everything?q=tesla&from=2024-04-18&sortBy=publishedAt&apiKey=fbc648dfdf2d4a3b90d118b18ad785dd";
 export const Browse = () => {
+  const [news, setNews] = useState(null);
+  //fetching news api
+  const fetchNews = async (url) => {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.length > 0) {
+        const article = data.articles[0];
+        setNews(article);
+      }
+      console.log(data.articles[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchNews(API, setNews);
+  }, []);
+  //time
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => {
@@ -72,10 +93,11 @@ export const Browse = () => {
             <div className="card">
               <div>
                 <img src="/everest.png" width={300} alt="" />
-                <div className="text-overlay">
-                  <h3>Want to climb Mount Everest?</h3>
-                  <p>2-20-2023 | 07:35 PM</p>
-                </div>
+                <h3>\sss\\\</h3>
+                <p>2-20-2023 | 07:35 PM</p>
+                {/* <div className="text-overlay">
+                  
+                </div> */}
               </div>
               <div className="padding">
                 <p>
