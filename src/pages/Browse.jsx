@@ -1,33 +1,52 @@
 import { useState, useEffect } from "react";
-import { TiWeatherStormy, TiThermometer } from "react-icons/ti";
 import { FaWind } from "react-icons/fa";
 import { TbDropletHalf2Filled } from "react-icons/tb";
 import { UserCard } from "../components/UserCard";
 import { NavLink } from "react-router-dom";
 import "../components/category.css";
 
-const API =
-  "https://newsapi.org/v2/everything?q=tesla&from=2024-04-18&sortBy=publishedAt&apiKey=fbc648dfdf2d4a3b90d118b18ad785dd";
+// const API =
+//   "https://newsapi.org/v2/everything?q=tesla&from=2023-02-09&sortBy=publishedAt&apiKey=4ef9b38002184be3bf2ccb7b066196af";
+
 export const Browse = () => {
-  const [news, setNews] = useState(null);
-  //fetching news api
-  const fetchNews = async (url) => {
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      if (data.length > 0) {
-        const article = data.articles[0];
-        setNews(article);
-      }
-      console.log(data.articles[0]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [weather, setWeather] = useState(false);
   useEffect(() => {
-    fetchNews(API, setNews);
+    const fetchWeather = async () => {
+      await fetch(
+        "https://api.weatherapi.com/v1/current.json?key=b49fe2afd0724d48b8d122129242105&q=London&aqi=no"
+      )
+        .then(async (data) => await data.json())
+        .then((data) => setWeather(data));
+    };
+    fetchWeather();
   }, []);
-  //time
+
+  // const [news, setNews] = useState();
+
+  // fetching news api
+  // const fetchNews = async () => {
+  //   try {
+  //     const res = await fetch(API);
+  //     const data = await res.json();
+  //     if (data.length > 0) {
+  //       const article = data.articles[0];
+  //       setNews(article);
+  //     }
+  //     console.log(data.articles[0]);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // console.log("news", news);
+  // useEffect(() => {
+  //   const fetchNews = async () => {
+  //     await fetch(API)
+  //       .then(async (data) => await data.json())
+  //       .then((res) => setNews(res.articles[0]));
+  //   };
+  //   fetchNews();
+  // }, []);
+  // time
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => {
@@ -43,7 +62,7 @@ export const Browse = () => {
   };
 
   const formatTime = (date) => {
-    const options = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+    const options = { hour: "2-digit", minute: "2-digit" };
     return date.toLocaleTimeString(undefined, options);
   };
   return (
@@ -53,48 +72,59 @@ export const Browse = () => {
           <section className="grid browse-layout">
             <div>
               <UserCard />
-              <div className="weather">
-                <div className="date-time">
-                  <p>{formatDate(currentDateTime)}</p>
-                  <p>{formatTime(currentDateTime)}</p>
+              {weather ? (
+                <div className="weather">
+                  <div className="date-time">
+                    <p>{formatDate(currentDateTime)}</p>
+                    <p>{formatTime(currentDateTime)}</p>
+                  </div>
+                  <div className="live-weather">
+                    <div>
+                      <img
+                        src={weather.current.condition.icon}
+                        style={{ width: "30px", height: "30px" }}
+                      />
+                      <h5>{weather.current.condition.text}</h5>
+                    </div>
+                    <div className="left-border">
+                      <h1>{weather.current.temp_c}&deg;c</h1>
+                      <div className="flex">
+                        <p>{weather.current.pressure_mb} mbar pressure</p>
+                      </div>
+                    </div>
+                    <div className="left-border">
+                      <div className="flex">
+                        <FaWind className="small-icon" />
+                        <p>
+                          {weather.current.wind_kph}km/hr <br />
+                          Wind
+                        </p>
+                      </div>
+                      <div className="flex">
+                        <TbDropletHalf2Filled className="small-icon" />
+                        <p>
+                          {weather.current.humidity} <br />
+                          Humidity
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="live-weather">
-                  <div>
-                    <TiWeatherStormy className="icon" />
-                    <h5>Heavy Rain</h5>
-                  </div>
-                  <div className="left-border">
-                    <h1>24&deg;c</h1>
-                    <div className="flex">
-                      <TiThermometer className="small-icon" />
-                      <p>1010 mbar pressure</p>
-                    </div>
-                  </div>
-                  <div className="left-border">
-                    <div className="flex">
-                      <FaWind className="small-icon" />
-                      <p>
-                        37.5km/hr <br />
-                        Wind
-                      </p>
-                    </div>
-                    <div className="flex">
-                      <TbDropletHalf2Filled className="small-icon" />
-                      <p>
-                        83% <br />
-                        Humidity
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ) : (
+                <></>
+              )}
             </div>
 
             <div className="card">
               <div>
                 <img src="/everest.png" width={300} alt="" />
-                <h3>\sss\\\</h3>
-                <p>2-20-2023 | 07:35 PM</p>
+                {/* <h3>{news.title}</h3> */}
+                <h3>&nbsp;Title</h3>
+                <p>
+                  &nbsp;&nbsp;{formatDate(currentDateTime)} |{" "}
+                  {formatTime(currentDateTime)}
+                </p>
+
                 {/* <div className="text-overlay">
                   
                 </div> */}
