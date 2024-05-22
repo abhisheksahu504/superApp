@@ -1,6 +1,7 @@
 import React from "react";
 
 export const Suggestion = () => {
+  const movies = JSON.parse(window.localStorage.getItem("genres"));
   return (
     <>
       <div className="container suggestion-head">
