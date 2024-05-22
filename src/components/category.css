@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   /* padding: 0px 50px 0px 50px; */
-*/ .left-side {
+.left-side {
   display: flex;
   flex-direction: column;
   justify-content: center;

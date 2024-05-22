@@ -12,7 +12,7 @@ export const UserCard = () => {
           style={{ height: "32vh", width: "10vw" }}
           alt="users logo"
         />
-        <div>
+        <div className="user-info-container">
           <h1>{info.name}</h1>
           <h1>{info.email}</h1>
           <h1>{info.username}</h1>

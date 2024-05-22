@@ -69,16 +69,22 @@ export const Browse = () => {
   return (
     <>
       <div className="container">
-        <section className="grid">
-          <section className="grid browse-layout">
+        <section>
+          <section className="browse-layout">
             <div>
               <UserCard />
+            </div>
+            <div>
               <Notes />
+            </div>
+            <div>
+              {/* weatherlapout */}
               {weather ? (
-                <div style={{ padding: "20px" }} className="weather">
+                <div className="weather">
                   <div className="date-time">
                     <p>{formatDate(currentDateTime)}</p>
                     <p>{formatTime(currentDateTime)}</p>
+                    <p>London Weather</p>
                   </div>
                   <div className="live-weather">
                     <div>
@@ -120,7 +126,12 @@ export const Browse = () => {
             {/* news layout */}
             <div className="card">
               <div>
-                <img src="/everest.png" width={300} alt="" />
+                <img
+                  src="/everest.png"
+                  width={300}
+                  style={{ height: "20rem" }}
+                  alt="everest mountain"
+                />
                 {/* <h3>{news.title}</h3> */}
                 <h3>&nbsp;Title</h3>
                 <p>
@@ -142,7 +153,10 @@ export const Browse = () => {
                 </p>
               </div>
             </div>
-            <div className="btn-container">
+            <div
+              className="btn-container"
+              style={{ position: "absolute", bottom: "2vh", right: "3vw" }}
+            >
               <NavLink to="/suggestion">
                 <button className="next-button">Browse</button>
               </NavLink>

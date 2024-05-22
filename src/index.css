@@ -43,10 +43,13 @@ code {
 
 /*css for card */
 .card {
+  /* position: absolute; */
+  /* right: 1rem; */
   /* height: 40%; */
   background-color: white;
   border-radius: 10px;
   width: 300px;
+  height: 80vh;
   /* text-align: center; */
   /* border: 2px solid black; */
 }
@@ -69,6 +72,10 @@ code {
 /*weather*/
 .weather {
   border-radius: 10px;
+  width: 30vw;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
 }
 .date-time {
   background: #ff4ade;
@@ -101,8 +108,10 @@ code {
 }
 /*Browser page layout*/
 .browse-layout {
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  /* grid-template-columns: 2fr 1fr; */
   gap: 16px;
+  width: 100vw;
 }
 
 .super-logo {
@@ -122,13 +131,17 @@ h1 {
 }
 /*user card container*/
 .user-card-container {
-  width: 30vw;
+  width: 32vw;
   min-height: 40vh;
   background: #5746ea;
   border-radius: 12px;
   padding: 6px;
   display: flex;
   gap: 12px;
+}
+.user-info-container h1 {
+  font-size: larger;
+  font-weight: 700;
 }
 /*Notes conatiner*/
 .notes-container {
