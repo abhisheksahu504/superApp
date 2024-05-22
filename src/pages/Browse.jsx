@@ -4,6 +4,7 @@ import { TbDropletHalf2Filled } from "react-icons/tb";
 import { UserCard } from "../components/UserCard";
 import { NavLink } from "react-router-dom";
 import "../components/category.css";
+import { Notes } from "../components/Notes";
 
 // const API =
 //   "https://newsapi.org/v2/everything?q=tesla&from=2023-02-09&sortBy=publishedAt&apiKey=4ef9b38002184be3bf2ccb7b066196af";
@@ -72,8 +73,9 @@ export const Browse = () => {
           <section className="grid browse-layout">
             <div>
               <UserCard />
+              <Notes />
               {weather ? (
-                <div className="weather">
+                <div style={{ padding: "20px" }} className="weather">
                   <div className="date-time">
                     <p>{formatDate(currentDateTime)}</p>
                     <p>{formatTime(currentDateTime)}</p>
@@ -82,7 +84,8 @@ export const Browse = () => {
                     <div>
                       <img
                         src={weather.current.condition.icon}
-                        style={{ width: "30px", height: "30px" }}
+                        style={{ width: "50px", height: "50px" }}
+                        alt="conditional icon of current eather condition"
                       />
                       <h5>{weather.current.condition.text}</h5>
                     </div>
@@ -114,7 +117,7 @@ export const Browse = () => {
                 <></>
               )}
             </div>
-
+            {/* news layout */}
             <div className="card">
               <div>
                 <img src="/everest.png" width={300} alt="" />
@@ -139,13 +142,13 @@ export const Browse = () => {
                 </p>
               </div>
             </div>
+            <div className="btn-container">
+              <NavLink to="/suggestion">
+                <button className="next-button">Browse</button>
+              </NavLink>
+            </div>
           </section>
         </section>
-      </div>
-      <div className="btn-container">
-        <NavLink to="/suggestion">
-          <button className="next-button">Browse</button>
-        </NavLink>
       </div>
     </>
   );
