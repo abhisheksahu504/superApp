@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const List = ({ genres }) => {
+export const List = ({ genre }) => {
   const [movies, setMovies] = useState([]);
   console.log(movies);
   useEffect(() => {
@@ -22,5 +22,26 @@ export const List = ({ genres }) => {
     };
     fetchMovies();
   }, []);
-  return <></>;
+  return (
+    <>
+      <p className="movie-heading">{genre}</p>
+      <div style={{ display: "flex", overflow: "hidden", marginLeft: "2vw" }}>
+        {movies.map((movie, idx) => {
+          return (
+            <div key={idx} style={{ width: "20vw", margin: "2vw" }}>
+              <img
+                src={movie?.primaryImage?.url}
+                style={{
+                  objectFit: "cover",
+                  width: "20vw",
+                  height: "15vh",
+                  borderRadius: "12px",
+                }}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
 };
